@@ -1,2 +1,7 @@
 # lang-fairy-books
-Search db of Andrew Lang Fairy Books
+
+Create a SQLite database of Andrew Lang Fairy Books (search individual stories).
+
+Try the GUI here: [Database Explorer](./site/gui.html).
+
+*GUI powered by [sql.js](https://github.com/sql-js/sql.js) and SQLite running in the browser via wasm.*
