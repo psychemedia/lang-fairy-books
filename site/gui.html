@@ -14,16 +14,17 @@
 <body>
   <h1>Lang Coloured Fairy Books Database Explorer</h1>
 
-  <p><strong>NOT WORKING YET</strong> For a "normal" search, enter a search term and click the <em>Search</em> button.</p>
-  <p>If you want to run a SQL query on the database, enter the query into the search form and click the <em>SQL</em> button.</p>
+  <p><em>Note that full text search doesn't (yet?!) work in this browser based UI.</em></p>
+  <!--<p><strong>NOT WORKING YET</strong> For a "normal" search, enter a search term and click the <em>Search</em> button.</p>-->
+  <p>If you want to run a SQL query on the database, enter the query into the search form and click the <em>RUN SQL</em> button.</p>
   <main>
-    <label for='commands'>Enter search query or SQL</label>
+    <label for='commands'>Enter SQL query</label>
     <br>
 
     <textarea id="commands">SELECT name FROM sqlite_master WHERE type='table';</textarea>
 
-    <button id="fts" class="button">Search</button>
-    <button id="execute" class="button">SQL</button>
+    <!--<button id="fts" class="button">Search</button>-->
+    <button id="execute" class="button">Run SQL</button>
     <!-- <button id='savedb' class="button">Save the db</button> -->
     
     <div id="error" class="error"></div>

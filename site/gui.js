@@ -1,5 +1,5 @@
 var execBtn = document.getElementById("execute");
-var ftsBtn = document.getElementById("fts");
+//var ftsBtn = document.getElementById("fts");
 var outputElm = document.getElementById('output');
 var errorElm = document.getElementById('error');
 var commandsElm = document.getElementById('commands');
