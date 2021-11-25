@@ -1,4 +1,5 @@
 var execBtn = document.getElementById("execute");
+var ftsBtn = document.getElementById("fts");
 var outputElm = document.getElementById('output');
 var errorElm = document.getElementById('error');
 var commandsElm = document.getElementById('commands');
@@ -24,6 +25,26 @@ function error(e) {
 
 function noerror() {
 	errorElm.style.height = '0';
+}
+
+// Run Full txt search query on the database
+function fts(query) {
+	tic();
+	query = `SELECT title, snippet(books_fts, -1, "__", "__", "...", 30) as clip
+	FROM books_fts WHERE books_fts MATCH "` + query.replace(/"/g, '\\"').replace("'", "\\'") +'"';
+	worker.onmessage = function (event) {
+		var results = event.data.results;
+		toc("Executing search");
+
+		tic();
+		outputElm.innerHTML = "";
+		for (var i = 0; i < results.length; i++) {
+			outputElm.appendChild(tableCreate(results[i].columns, results[i].values));
+		}
+		toc("Displaying results");
+	}
+	worker.postMessage({ action: 'exec', sql: query });
+	outputElm.textContent = "Fetching results...";
 }
 
 // Run a command in the database
@@ -67,6 +88,12 @@ function execEditorContents() {
 	execute(editor.getValue() + ';');
 }
 execBtn.addEventListener("click", execEditorContents, true);
+
+function ftsEditorContents() {
+	noerror()
+	fts(editor.getValue());
+}
+ftsBtn.addEventListener("click", ftsEditorContents, true);
 
 // Performance measurement functions
 var tictime;
