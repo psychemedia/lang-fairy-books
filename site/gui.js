@@ -4,7 +4,7 @@ var outputElm = document.getElementById('output');
 var errorElm = document.getElementById('error');
 var commandsElm = document.getElementById('commands');
 var dbFileElm = document.getElementById('dbfile');
-var savedbElm = document.getElementById('savedb');
+//var savedbElm = document.getElementById('savedb');
 
 // Start the worker in which sql.js will run
 var worker = new Worker("./worker.sql-wasm.js");
@@ -94,7 +94,7 @@ function ftsEditorContents() {
 	noerror()
 	fts(editor.getValue());
 }
-ftsBtn.addEventListener("click", ftsEditorContents, true);
+//ftsBtn.addEventListener("click", ftsEditorContents, true);
 
 // Performance measurement functions
 var tictime;
@@ -168,4 +168,4 @@ function savedb() {
 	tic();
 	worker.postMessage({ action: 'export' });
 }
-savedbElm.addEventListener("click", savedb, true);
+//savedbElm.addEventListener("click", savedb, true);
