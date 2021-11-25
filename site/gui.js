@@ -32,6 +32,7 @@ function fts(query) {
 	tic();
 	query = `SELECT title, snippet(books_fts, -1, "__", "__", "...", 30) as clip
 	FROM books_fts WHERE books_fts MATCH "` + query.replace(/"/g, '\\"').replace("'", "\\'") +'"';
+	console.log(query);
 	worker.onmessage = function (event) {
 		var results = event.data.results;
 		toc("Executing search");
