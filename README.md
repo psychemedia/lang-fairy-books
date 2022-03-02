@@ -1,4 +1,7 @@
+# ***THIS REPO IS NOW DEPRECATED - SEE https://github.com/psychemedia/storynotes FOR LATEST WORK***
+
 # lang-fairy-books
+
 
 Create a SQLite database of Andrew Lang Fairy Books (search individual stories).
 
